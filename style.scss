@@ -1,0 +1,103 @@
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+.clock {
+    width: 400px;
+    height: 400px;
+    background: rgba(white, .7);
+    position: relative;
+    border: 3px solid black;
+    border-radius: 50%;
+    .number {
+        --rotation: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        font-size: 30px;
+        border-radius: 50%;
+        text-align: center;
+        transform: rotate(var(--rotation));
+        &1 {
+            --rotation: 30deg;
+        }
+        &2 {
+            --rotation: 60deg;
+        }
+        &3 {
+            --rotation: 90deg;
+        }
+        &4 {
+            --rotation: 120deg;
+        }
+        &5 {
+            --rotation: 150deg;
+        }
+        &6 {
+            --rotation: 180deg;
+        }
+        &7 {
+            --rotation: 210deg;
+        }
+        &8 {
+            --rotation: 240deg;
+        }
+        &9 {
+            --rotation: 270deg;
+        }
+        &10 {
+            --rotation: 300deg;
+        }
+        &11 {
+            --rotation: 330deg;
+        }
+    }
+    .hand {
+        --rotation: 0;
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        width: 10px;
+        height: 50%;
+        background: black;
+        border: 1px solid white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        z-index: 3;
+        transform-origin: bottom;
+        transform: translateX(-50%)rotate(calc(var(--rotation)* 1deg));
+        &.second {
+            width: 3px;
+            height: 40%;
+            background: red;
+        }
+        &.minute {
+            width: 5px;
+            height: 35%;
+            background: green;
+        }
+        &.hour {
+            width: 7px;
+            height: 25%;
+            background: blue;
+        }
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        background: black;
+        z-index: 20;
+        width: 15px;
+        height: 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+    }
+}
